@@ -6,7 +6,7 @@
 #}
 {% extends in_dialog() ? '@Ui/layout/dialog.html.twig' : '@Ui/layout/app.html.twig' %}
 
-{% set crumbs = [{label: 'party.title'|trans, href: path('app_contacts')}, {label: name, href: path('app_contact_show', {id: contactId, tab: 'margin'})}, {label: 'margin.supplier.edit'|trans}] %}
+{% set crumbs = [{label: 'contacts.title'|trans, href: path('app_contacts')}, {label: name, href: path('app_contact_show', {id: contactId, tab: 'margin'})}, {label: 'margin.supplier.edit'|trans}] %}
 {% set dialog_size = 'sm' %}
 {% set dialog_description = name %}
 
@@ -14,7 +14,7 @@
 
 {% block dialog_body %}
     <form method="post" id="margin-default-form" action="{{ path('app_margin_supplier_default_edit', {id: contactId}) }}" class="grid gap-4" novalidate data-margin-default-form>
-        <input type="hidden" name="_token" value="{{ csrf_token(constant('Foresi\\Margin\\Infrastructure\\Party\\SupplierDefaultController::TOKEN')) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token(constant('Foresi\\Margin\\Integration\\Contacts\\SupplierDefaultController::TOKEN')) }}">
         {# The first submit button of a form is what Enter presses: it is Save (the footer buttons come later). #}
         <button type="submit" name="_action" value="save" class="sr-only" tabindex="-1" aria-hidden="true"></button>
         {% if error %}<twig:Ui:Alert tone="error" data-margin-error autofocus>{{ error }}</twig:Ui:Alert>{% endif %}

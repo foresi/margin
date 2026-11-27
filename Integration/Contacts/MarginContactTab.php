@@ -6,11 +6,11 @@
 
 declare(strict_types=1);
 
-namespace Foresi\Margin\Infrastructure\Party;
+namespace Foresi\Margin\Integration\Contacts;
 
+use Foresi\Contacts\Contract\ContactTabs;
 use Foresi\Margin\Application\MarginAccess;
 use Foresi\Margin\Domain\MarginRefused;
-use Foresi\Party\Contract\ContactTabs;
 use Foresi\Ui\Contract\Slot\SlotItem;
 use Foresi\Ui\Contract\Slot\SlotProvider;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

@@ -6,15 +6,15 @@
 
 declare(strict_types=1);
 
-namespace Foresi\Margin\Infrastructure\Party;
+namespace Foresi\Margin\Integration\Contacts;
 
+use Foresi\Contacts\Contract\ContactTabs;
 use Foresi\Instance\Application\InstanceClock;
 use Foresi\Margin\Application\AllocationReads;
 use Foresi\Margin\Application\AllocationWrites;
 use Foresi\Margin\Application\SetSupplierDefaultInput;
 use Foresi\Margin\Application\SupplierDefaultsView;
 use Foresi\Margin\Domain\MarginRefused;
-use Foresi\Party\Contract\ContactTabs;
 use Foresi\Shared\Contract\RefusalKind;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

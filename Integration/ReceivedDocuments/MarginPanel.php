@@ -6,13 +6,13 @@
 
 declare(strict_types=1);
 
-namespace Foresi\Margin\Integration\Purchasing;
+namespace Foresi\Margin\Integration\ReceivedDocuments;
 
 use Foresi\Margin\Application\AllocationReads;
 use Foresi\Margin\Application\LineAllocationView;
 use Foresi\Margin\Application\ShareView;
 use Foresi\Margin\Domain\MarginRefused;
-use Foresi\Purchasing\Contract\PurchasingSlots;
+use Foresi\ReceivedDocuments\Contract\PurchasingSlots;
 use Foresi\Shared\Domain\Money;
 use Foresi\Ui\Contract\Slot\SlotItem;
 use Foresi\Ui\Contract\Slot\SlotProvider;

@@ -7,7 +7,7 @@
 #}
 {% extends in_dialog() ? '@Ui/layout/dialog.html.twig' : '@Ui/layout/app.html.twig' %}
 
-{% set crumbs = [{label: 'nav.group.money'|trans}, {label: 'purchasing.list.title'|trans, href: path('app_purchasing')}, {label: title, href: path('app_purchasing_document', {id: documentId})}] %}
+{% set crumbs = [{label: 'nav.group.money'|trans}, {label: 'received_documents.list.title'|trans, href: path('app_received_documents')}, {label: title, href: path('app_received_document', {id: documentId})}] %}
 {% set dialog_size = 'sm' %}
 {% set dialog_description = 'margin.screen.assign_description'|trans %}
 
@@ -15,7 +15,7 @@
 
 {% block dialog_body %}
     <form method="post" id="margin-assign-form" action="{{ path('app_margin_assign', {id: documentId}) }}" class="grid gap-4" novalidate data-margin-assign-form>
-        <input type="hidden" name="_token" value="{{ csrf_token(constant('Foresi\\Margin\\Integration\\Purchasing\\MarginController::TOKEN')) }}">
+        <input type="hidden" name="_token" value="{{ csrf_token(constant('Foresi\\Margin\\Integration\\ReceivedDocuments\\MarginController::TOKEN')) }}">
         {# The first submit button of a form is what Enter presses: it is Save, never Clear (the footer buttons come later). #}
         <button type="submit" name="_action" value="save" class="sr-only" tabindex="-1" aria-hidden="true"></button>
         {% if error %}<twig:Ui:Alert tone="error" data-margin-error autofocus>{{ error }}</twig:Ui:Alert>{% endif %}
@@ -40,7 +40,7 @@
         {{ body }}
         <div class="mt-4 flex flex-wrap justify-end gap-2">
             {% if view.documentRecipient is not null %}<twig:Ui:Button type="submit" form="margin-assign-form" name="_action" value="clear">{{ 'margin.screen.clear'|trans }}</twig:Ui:Button>{% endif %}
-            <twig:Ui:Button :href="path('app_purchasing_document', {id: documentId})">{{ 'margin.screen.cancel'|trans }}</twig:Ui:Button>
+            <twig:Ui:Button :href="path('app_received_document', {id: documentId})">{{ 'margin.screen.cancel'|trans }}</twig:Ui:Button>
             <twig:Ui:Button type="submit" form="margin-assign-form" name="_action" value="assign" variant="primary">{{ 'margin.screen.submit'|trans }}</twig:Ui:Button>
         </div>
     </twig:Ui:Card>
